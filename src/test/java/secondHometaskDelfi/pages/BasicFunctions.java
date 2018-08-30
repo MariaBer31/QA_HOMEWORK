@@ -7,10 +7,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class BasicFunctions {
@@ -18,8 +18,8 @@ public class BasicFunctions {
     public final Logger LOGGER = LogManager.getLogger(BasicFunctions.class);
 
     public BasicFunctions() {
-        //System.setProperty("webdriver.gecko.driver", "c:/geckodriver.exe");
-        //driver = new FirefoxDriver();
+        // System.setProperty("webdriver.gecko.driver", "c:/geckodriver.exe");
+        //  driver = new FirefoxDriver();
         System.setProperty("webdriver.chrome.driver", "c:/chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -36,6 +36,7 @@ public class BasicFunctions {
         driver.quit();
     }
 
+
     List<WebElement> getElements(By locator) {
         Assert.assertFalse("No elements found", driver.findElements(locator).isEmpty());
         return driver.findElements(locator);
@@ -48,14 +49,6 @@ public class BasicFunctions {
     public WebElement getElement(By locator) {
         waitForElement(locator);
         return driver.findElement(locator);
-    }
-
-    public List<String> stringList(List<WebElement> webElements) {
-        List<String> strings = new ArrayList<String>();
-        for (WebElement webElement : webElements) {
-            strings.add(webElement.getText());
-        }
-        return strings;
     }
 
     public Integer stringToInt(String string) {

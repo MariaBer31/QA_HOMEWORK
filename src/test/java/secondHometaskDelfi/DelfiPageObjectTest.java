@@ -1,5 +1,6 @@
 package secondHometaskDelfi;
 
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Test;
 import secondHometaskDelfi.pages.ArticlePage;
@@ -10,7 +11,7 @@ import secondHometaskDelfi.pages.HomePage;
 public class DelfiPageObjectTest {
     private BasicFunctions basicFunctions = new BasicFunctions();
     private final String HOME_PAGE = "rus.delfi.lv";
-    String ARTICLE_TEXT = "В Латвии аннулировали бренд";
+    private String ARTICLE_TEXT = "Бесплатной медицины в Латвии стало меньше";
 
 
     /*Для заданной статьи проверить, что совпадает количество комментариев на DelfiWeb главной странице,
@@ -34,6 +35,10 @@ public class DelfiPageObjectTest {
         Integer commentPageCommentSum = commentPage.commentSum();
         Assert.assertSame("Comments number is different", commentPageCommentSum, mainPageCommentsCount);
 
+    }
+
+    @After
+    public void closeBrowser() {
         basicFunctions.closeBrowser();
     }
 }

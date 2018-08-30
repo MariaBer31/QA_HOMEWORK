@@ -1,4 +1,4 @@
-package home_classWork_dresses.pages;
+package homeClassWorkDresses.pages;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

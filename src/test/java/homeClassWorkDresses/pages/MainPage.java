@@ -1,4 +1,4 @@
-package home_classWork_dresses.pages;
+package homeClassWorkDresses.pages;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;

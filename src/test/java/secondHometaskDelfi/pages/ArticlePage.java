@@ -24,4 +24,6 @@ public class ArticlePage {
         LOGGER.info("Redirecting to comment page");
         return new CommentPage(basicFunctions);
     }
+
+
 }

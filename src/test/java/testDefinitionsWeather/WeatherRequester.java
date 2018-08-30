@@ -1,4 +1,4 @@
-package test_Definitions_weather;
+package testDefinitionsWeather;
 
 import org.springframework.web.client.RestTemplate;
 import thirdHometaskWeather.Response;

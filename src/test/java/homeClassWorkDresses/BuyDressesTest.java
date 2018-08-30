@@ -1,6 +1,6 @@
-package home_classWork_dresses;
+package homeClassWorkDresses;
 
-import home_classWork_dresses.pages.*;
+import homeClassWorkDresses.pages.*;
 import org.junit.Assert;
 import org.junit.Test;
 

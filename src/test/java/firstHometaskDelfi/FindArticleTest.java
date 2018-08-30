@@ -1,20 +1,24 @@
 package firstHometaskDelfi;
 
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Test;
-import org.openqa.selenium.By;
 
 public class FindArticleTest {
     private final String MAIN_PAGE = "http://rus.delfi.lv/";
-    private static final String NAME_ARTICLE = "Маршрут выходного дня";
-    private final By NEWS_ITEM = By.xpath(".//a");
+    private static final String NAME_ARTICLE = "Бесплатной медицины в Латвии стало меньше";
     private BaseSteps baseSteps = new BaseSteps();
 
     @Test
     public void findNewsTest() {
         baseSteps.openPage(MAIN_PAGE);
-        Assert.assertFalse("No elements found", baseSteps.findListOfElements(NEWS_ITEM).isEmpty());
-        Assert.assertTrue("No article found", baseSteps.isArticleFound(NAME_ARTICLE, NEWS_ITEM));
+        MainPage mainPage = new MainPage(baseSteps);
+        Assert.assertFalse("No elements found", mainPage.newsItems().isEmpty());
+        Assert.assertTrue("No article found", baseSteps.isArticleFound(NAME_ARTICLE, mainPage.NEWS_ITEM));
+    }
+
+    @After
+    public void closePage() {
         baseSteps.closePage();
     }
 }

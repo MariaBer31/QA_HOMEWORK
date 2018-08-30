@@ -1,6 +1,6 @@
-package test_Definitions_Delfi;
+package testDefinitionsDelfi;
 
-import cucumber.api.java.en.And;
+import cucumber.api.java.After;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -11,15 +11,15 @@ import secondHometaskDelfi.pages.CommentPage;
 import secondHometaskDelfi.pages.HomePage;
 
 public class DelfiStepDefs {
-    HomePage homePage;
-    ArticlePage articlePage;
-    CommentPage commentPage;
-    BasicFunctions basicFunctions = new BasicFunctions();
-    private final String HOME_PAGE = "rus.delfi.lv";
+    private HomePage homePage;
+    private ArticlePage articlePage;
+    private CommentPage commentPage;
+    private BasicFunctions basicFunctions = new BasicFunctions();
 
 
     @Given("Delfi home page")
     public void open_home_page() {
+        String HOME_PAGE = "rus.delfi.lv";
         basicFunctions.openPage(HOME_PAGE);
         homePage = new HomePage(basicFunctions);
     }
@@ -45,6 +45,10 @@ public class DelfiStepDefs {
     @Then("expect comment count is equals to comment count on main page")
     public void check_results() {
         Assert.assertSame("Comment count doesn't match", commentPage.commentSum(), basicFunctions.stringToInt(homePage.articleComment));
+    }
+
+    @After()
+    public void close_browser() {
         basicFunctions.closeBrowser();
     }
 }
